@@ -42,9 +42,9 @@
 
 // route get table reservation information
     router.get("/api/:reservations?", function(req, res) {
-        var chosen = req.params.reservations
+        let chosen = req.params.reservations
         if (chosen) {
-        for (var i = 0; i < reservations.length; i++) {
+        for (let i = 0; i < reservations.length; i++) {
             if (chosen === reservations[i].routeName) {
             return res.json(reservations[i])
             }
@@ -55,22 +55,22 @@
     })
 
 // route get reservation waitlist
-    router.get("/api/:reservations?", function(req, res) {
-        var chosen = req.params.reservations
+    router.get("/api/waitlist?", function(req, res) {
+        let chosen = req.params.waitlist
         if (chosen) {
-        for (var i = 0; i < reservations.length; i++) {
-            if (chosen === reservations[i].routeName) {
-            return res.json(reservations[i])
+        for (let i = 0; i < waitlist.length; i++) {
+            if (chosen === waitlist[i].routeName) {
+            return res.json(waitlist[i])
             }
         }
         return res.json(false)
         }
-        return res.json(reservations)
+        return res.json(waitlist)
     })
   
 // route post new reservations
     router.post("/api/new", function(req, res) {
-        var newReservation = req.body
+        let newReservation = req.body
         newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase()
         characters.push(newReservation)
         res.json(newReservation)
