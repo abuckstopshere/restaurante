@@ -3,6 +3,7 @@
     const express = require('express')
     const app = express()
     const fs = require('fs')
+    const bodyParser = require('body-parser')
     const port = process.env.PORT || 3030
     const router = express.Router()
     const TABLESI = './tables.html'
@@ -37,6 +38,42 @@
 
     router.get('/reserve' , function(req , res) {
         res.send(reservei())
+    })
+
+// route get table reservation information
+    router.get("/api/:reservations?", function(req, res) {
+        var chosen = req.params.reservations
+        if (chosen) {
+        for (var i = 0; i < reservations.length; i++) {
+            if (chosen === reservations[i].routeName) {
+            return res.json(reservations[i])
+            }
+        }
+        return res.json(false)
+        }
+        return res.json(reservations)
+    })
+
+// route get reservation waitlist
+    router.get("/api/:reservations?", function(req, res) {
+        var chosen = req.params.reservations
+        if (chosen) {
+        for (var i = 0; i < reservations.length; i++) {
+            if (chosen === reservations[i].routeName) {
+            return res.json(reservations[i])
+            }
+        }
+        return res.json(false)
+        }
+        return res.json(reservations)
+    })
+  
+// route post new reservations
+    router.post("/api/new", function(req, res) {
+        var newReservation = req.body
+        newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase()
+        characters.push(newReservation)
+        res.json(newReservation)
     })
 
 // server on 
