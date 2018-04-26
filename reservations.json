@@ -1,0 +1,20 @@
+[
+    {
+    "customerName": "Andre The Giant",
+    "customerPhoneNumber": "2222222222",
+    "customerEmail": "testemail1@email.com",
+    "customerId": 1
+    },
+    {
+    "customerName": "John Snow",
+    "customerPhoneNumber": "5555555555",
+    "customerEmail": "testemail2@email.com",
+    "customerId": 2
+    },
+    {
+    "customerName": "Ron Burgundy",
+    "customerPhoneNumber": "7777777777",
+    "customerEmail": "testemail3@email.com",
+    "customerId": 3
+    }
+  ]
