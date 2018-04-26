@@ -12,7 +12,7 @@
 
 // read pages
     const tablesi = () => {
-        fs.readFileSync(TABLES , 'utf8' , (error , response) => {response})
+        fs.readFileSync(TABLESI , 'utf8' , (error , response) => {response})
     }
 
     const reservei = () => {
