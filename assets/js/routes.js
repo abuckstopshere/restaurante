@@ -72,7 +72,7 @@
     router.post("/api/new", function(req, res) {
         let newReservation = req.body
         newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase()
-        characters.push(newReservation)
+        reservations.push(newReservation)
         res.json(newReservation)
     })
 
